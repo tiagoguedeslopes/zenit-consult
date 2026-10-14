@@ -366,7 +366,9 @@ section{padding-block:clamp(56px,7vw,96px)}
 .tag-list{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
 .tag-list li{border-top:1px solid #DCE2EB;padding-top:6px;font:600 14px/1.3 var(--body);color:var(--night)}
 .tag-list strong{font:700 14px/1.2 var(--body);color:var(--night);white-space:nowrap}
-.portrait .tag{max-width:310px;min-width:250px}
+.portrait .tag{max-width:min(345px,calc(100% - 24px));min-width:250px}
+.tag-list li{white-space:nowrap}
+@media (max-width:420px){.tag-list li{white-space:normal}}
 .tag-list span{font:400 12.5px/1.2 var(--mono);color:#4A5770;white-space:nowrap}
 .lesson{margin:0;padding:16px 20px;border-left:3px solid var(--glow);background:var(--chip);border-radius:0 8px 8px 0;font:400 18px/1.5 var(--display);color:var(--fg)}
 .lesson strong{font-weight:900}
