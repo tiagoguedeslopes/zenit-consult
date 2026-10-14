@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PBQP-H Zênit Consult</title>
+<meta name="description" content="Consultoria PBQP-H para construtoras: SiAC Nível B e Nível A, manutenção e auditoria interna. Tiago Guedes, Zênit Consult · presencial em Natal e região, online para qualquer lugar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Zênit Consult — PBQP-H para construtoras","slogan":"Tecnologia aplicada à gestão","description":"Consultoria PBQP-H (SiAC Nível A e B) para construtoras.","areaServed":["Natal","Grande Natal","Rio Grande do Norte","Brasil"],"telephone":"+55 85 98525-2356","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.instagram.com/comercial.zenit"]}
+</script>
+<style>
+/* Layout: Zênit constellation night sky on dark bands (hero, método, fechamento) alternating with cool-silver paper sections; mono codes carry the norm vocabulary */
+:root{
+  --night:#0A1430; --navy:#10224A; --navy-2:#1B3466; --glow:#3C5C99;
+  --star:#F4F7FC; --silver:#C6CDD8; --silver-dim:#9AA6BA; --hair:rgba(198,205,216,.18);
+  --bg:#EEF1F5; --surface:#FFFFFF; --fg:#0F1D3B; --muted:#56637A; --line:#D5DBE4; --chip:#E3E8EF;
+  --ok:#2C8A5A; --warn:#B57A12; --bad:#B9443A; --wa:#25D366;
+  --display:"Lato","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081024;--surface:#0F1B36;--fg:#E5EAF2;--muted:#9BA8BF;--line:#22325A;--chip:#17264A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#081024;--surface:#0F1B36;--fg:#E5EAF2;--muted:#9BA8BF;--line:#22325A;--chip:#17264A;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font:400 18px/1.6 var(--body);-webkit-font-smoothing:antialiased;margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,4.2vw,48px)}
+h3{font-size:23px;font-weight:700;letter-spacing:0}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font:700 12.5px/1.4 var(--display);letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:62ch;font-size:19px}
+section{padding-block:clamp(64px,9vw,108px)}
+.sec-head{display:grid;gap:14px;margin-bottom:44px;max-width:800px}
+:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:4px}
+.sky{background:url("../img/zenit-bg.jpg") center/cover no-repeat,var(--night);color:var(--star);position:relative}
+.sky .eyebrow{color:var(--silver-dim)}
+.sky .lede{color:var(--silver)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 16.5px/1.1 var(--body);padding:16px 22px;border-radius:6px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease,background .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-star{background:linear-gradient(180deg,#FFFFFF,#DCE2EB);color:var(--night);box-shadow:0 8px 24px rgba(4,10,28,.35),inset 0 -1px 0 rgba(10,20,48,.15)}
+.btn-star:hover{background:#fff}
+.btn-ghost{border-color:rgba(198,205,216,.4);color:var(--star);background:rgba(10,20,48,.25);backdrop-filter:blur(2px)}
+.btn-ghost:hover{border-color:var(--star)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-2)}
+.btn-line{border-color:var(--line);color:var(--fg);background:var(--surface)}
+.btn-line:hover{border-color:var(--muted)}
+.btn-wa{background:var(--wa);color:#06341A}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(10,20,48,.92);backdrop-filter:blur(8px);color:var(--star);border-bottom:1px solid var(--hair)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand img{height:40px;width:auto}
+.brand span{font:700 16px/1.2 var(--display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand small{display:block;font:400 10.5px/1.3 var(--display);color:var(--silver-dim);letter-spacing:.24em;text-transform:uppercase}
+.top nav{display:flex;gap:22px;font-size:15px}
+.top nav a{text-decoration:none;color:var(--silver)}
+.top nav a:hover{color:#fff}
+.top .btn{padding:10px 15px;font-size:15px}
+@media (max-width:980px){.top nav{display:none}}
+@media (max-width:480px){.top .btn .lbl{display:none}.top .btn{padding:10px 12px}}
+
+/* hero */
+.hero{padding-block:clamp(44px,6vw,80px) 0;overflow:hidden;background-position:70% center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,16,40,.72) 0%,rgba(8,16,40,.35) 55%,rgba(8,16,40,0) 100%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:end}
+.hero-copy{display:grid;gap:28px;padding-bottom:clamp(40px,6vw,80px);min-width:0}
+.hero h1{font-size:clamp(40px,5.6vw,70px)}
+.hero h1 em{font-style:normal;font-weight:300;color:var(--silver)}
+.hero .lede strong{color:#fff;font-weight:600}
+.hero-intro{display:grid;gap:12px;max-width:60ch}
+.hero-intro .hi{font:700 21px/1.35 var(--display);color:#fff}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.svc-pills{display:flex;flex-wrap:wrap;gap:8px}
+.svc-pills a{font:500 13px/1 var(--mono);border:1px solid var(--hair);padding:9px 11px;border-radius:3px;color:var(--star);text-decoration:none;background:rgba(10,20,48,.35)}
+.svc-pills a:hover{border-color:var(--silver)}
+.live{display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:8px;vertical-align:2px;box-shadow:0 0 10px 2px rgba(190,210,255,.8);animation:twinkle 2.6s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.35}}
+.portrait{position:relative;align-self:end;min-width:0}
+.portrait video,.portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:10px 10px 0 0;max-width:100%;background:var(--navy-2);border:1px solid var(--hair);border-bottom:0}
+.tag{position:absolute;left:-18px;bottom:28px;background:rgba(244,247,252,.96);color:var(--night);padding:14px 16px;border-radius:6px;box-shadow:0 18px 40px rgba(5,12,30,.4);display:grid;gap:3px;max-width:270px}
+.tag b{font:900 17px/1.15 var(--display)}
+.tag span{font:400 12.5px/1.4 var(--mono);color:#4A5770}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:440px}.tag{left:12px;bottom:12px;max-width:240px}.hero::after{background:rgba(8,16,40,.45)}}
+
+/* stats */
+.stats{background:var(--surface);border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:24px 20px;border-left:1px solid var(--line);display:grid;gap:4px}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{font:900 clamp(30px,3.6vw,42px)/1 var(--display);font-variant-numeric:tabular-nums;color:var(--fg)}
+.stat span{font-size:15px;color:var(--muted)}
+@media (max-width:760px){.stats .wrap{grid-template-columns:1fr 1fr}.stat{border-left:0;padding-left:0;border-top:1px solid var(--line)}.stat:nth-child(-n+2){border-top:0}}
+
+/* ticker */
+.ticker{background:linear-gradient(180deg,#F7F9FC,#DFE5EE);color:#10224A;overflow:hidden;white-space:nowrap;border-block:1px solid #C9D2DE}
+.ticker-track{display:inline-flex;animation:tick 42s linear infinite;padding-block:14px}
+.ticker span{font:900 13.5px/1 var(--display);text-transform:uppercase;letter-spacing:.26em;padding-inline:26px;position:relative}
+.ticker span::after{content:"✦";position:absolute;right:-6px;top:50%;transform:translateY(-50%);font-size:10px;color:#3C5C99}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* pains */
+.pains{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.pain{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:14px}
+.pain small{margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.pain q{font:700 20px/1.35 var(--display);quotes:"“" "”";color:var(--fg)}
+.pain small{font:500 12px/1.4 var(--mono);color:var(--muted);letter-spacing:.04em}
+.pain small b{color:var(--bad);font-weight:500}
+.pain-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--glow);border-radius:10px;padding:28px 30px}
+.pain-foot div{display:grid;gap:8px;max-width:64ch;min-width:0}
+.pain-foot strong{font:900 22px/1.3 var(--display)}
+.pain-foot span{color:var(--muted);font-size:18px}
+
+/* services */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;isolation:isolate}
+.svc-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--navy)}
+.svc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.svc:hover .svc-img img{transform:scale(1.04)}
+.svc-img span{position:absolute;left:12px;top:12px;font:500 11.5px/1 var(--mono);letter-spacing:.06em;background:rgba(10,20,48,.85);color:#fff;padding:7px 9px;border-radius:3px}
+.svc-body{padding:24px;display:grid;gap:14px;align-content:start}
+.svc-body ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.svc-body li{padding-left:24px;position:relative;font-size:16.5px;line-height:1.45}
+.svc-body li::before{content:"✦";position:absolute;left:0;top:1px;font-size:12px;color:var(--glow)}
+.svc .codes{font:500 12px/1.5 var(--mono);color:var(--muted)}
+.svc .btn{justify-self:start;margin-top:6px}
+.levels{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.levels div{border:1px solid var(--line);border-radius:7px;padding:10px 12px;display:grid;gap:2px}
+.levels b{font:900 18px/1 var(--display)}
+.levels span{font-size:13.5px;color:var(--muted);line-height:1.35}
+@media (max-width:980px){.svcs{grid-template-columns:1fr}.svc{grid-template-columns:.9fr 1.1fr;grid-template-rows:none}.svc-img{aspect-ratio:auto;min-height:100%}}
+@media (max-width:640px){.svc{grid-template-columns:1fr}.svc-img{aspect-ratio:16/10}}
+
+/* method */
+.met-head{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:44px}
+.met-head .sec-head{margin-bottom:0}
+.method::before{content:"";position:absolute;inset:0;background:rgba(8,16,40,.55);pointer-events:none}
+.method .wrap{position:relative}
+.vpanel{position:relative;border-radius:10px;overflow:hidden;background:var(--navy-2);min-width:0;margin:0}
+.vpanel video{display:block;width:100%;height:100%;object-fit:cover;max-width:100%}
+.vpanel.tall{aspect-ratio:4/5;max-height:440px;justify-self:end;width:100%;max-width:360px;border:1px solid var(--hair)}
+.vpanel figcaption{position:absolute;left:10px;bottom:10px;font:500 11.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:rgba(10,19,37,.82);color:#EEF2F8;padding:7px 9px;border-radius:3px}
+@media (max-width:820px){.met-head{grid-template-columns:1fr}.vpanel.tall{justify-self:start}}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
+.steps li{counter-increment:s;padding:22px;border:1px solid var(--hair);border-radius:10px;background:rgba(10,20,48,.5);display:grid;gap:10px;align-content:start}
+.steps li::before{content:"0" counter(s);font:500 13px/1 var(--mono);color:var(--silver-dim)}
+.steps h3{font-size:21px;color:#fff}
+.steps p{color:var(--silver);font-size:16px;line-height:1.55}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+.techrow{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.techrow div{display:flex;gap:14px;align-items:flex-start;padding:4px 0}
+.techrow svg{width:28px;height:28px;flex:none;stroke:var(--silver);fill:none;stroke-width:1.5}
+.techrow b{display:block;font:700 17px/1.3 var(--display);color:#fff}
+.techrow span{font-size:15px;color:var(--silver)}
+@media (max-width:820px){.techrow{grid-template-columns:1fr}}
+.commit{margin-top:32px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;border:1px solid var(--hair);border-radius:10px;padding:20px 22px;background:rgba(10,20,48,.45)}
+.commit img{width:52px;height:auto}
+.commit p{color:var(--silver)}
+.commit strong{color:#fff}
+
+/* integridade */
+.integ{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.integ-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:0}
+.integ-photos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;display:block;max-width:100%}
+.integ-photos img:last-child{margin-top:40px}
+.integ-copy{display:grid;gap:18px;min-width:0}
+.pin{display:inline-flex;align-items:center;font:500 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--chip);padding:9px 11px;border-radius:4px;justify-self:start}
+.pin .live{background:var(--glow);box-shadow:0 0 8px 2px rgba(60,92,153,.5)}
+.law{font-size:16px;color:var(--muted);border-left:2px solid var(--glow);padding-left:14px}
+@media (max-width:860px){.integ{grid-template-columns:1fr}}
+
+/* quiz */
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:12px;display:grid;grid-template-columns:300px 1fr;overflow:hidden}
+.quiz aside{background:url("../img/zenit-bg.jpg") 30% center/cover,var(--night);color:var(--star);padding:28px;display:grid;gap:18px;align-content:start}
+.quiz aside .eyebrow{color:var(--silver-dim)}
+.quiz aside ol{margin:0;padding:0;list-style:none;display:grid;gap:12px;font-size:15.5px}
+.quiz aside li{display:flex;gap:10px;align-items:center;color:var(--silver-dim)}
+.quiz aside li i{font:500 12px/1 var(--mono);font-style:normal;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--hair);display:grid;place-items:center;flex:none}
+.quiz aside li.cur{color:#fff;font-weight:600}
+.quiz aside li.cur i{border-color:#fff;background:#fff;color:var(--night);box-shadow:0 0 12px rgba(190,210,255,.7)}
+.quiz aside li.done i{border-color:var(--silver);color:var(--silver)}
+.quiz aside .small{color:var(--silver)}
+.qpane{padding:clamp(22px,4vw,40px);display:grid;gap:22px;align-content:start;min-width:0}
+.bar{height:6px;background:var(--chip);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--glow),var(--navy));transition:width .3s ease}
+.qtitle{font:700 21px/1.35 var(--display)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;font:500 17px/1.35 var(--body);color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:8px;padding:15px 16px;cursor:pointer;width:100%}
+.opt:hover{border-color:var(--muted)}
+.opt[aria-pressed="true"]{border-color:var(--glow);background:color-mix(in srgb,var(--glow) 10%,var(--surface))}
+.opt b{font:500 12px/1 var(--mono);color:var(--muted);width:20px;flex:none}
+.opt small{display:block;font-size:14px;color:var(--muted);font-weight:400}
+.opts.three{grid-template-columns:repeat(3,1fr)}
+.opts.two{grid-template-columns:1fr 1fr}
+@media (max-width:640px){.opts.two,.opts.three{grid-template-columns:1fr}}
+.qnav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.field{display:grid;gap:6px}
+.field label{font:600 14.5px/1.2 var(--body)}
+.field input,.field select{font:400 16px/1.3 var(--body);padding:13px 14px;border:1.5px solid var(--line);border-radius:7px;background:var(--surface);color:var(--fg);width:100%}
+.fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media (max-width:700px){.fields{grid-template-columns:1fr}}
+.err{color:var(--bad);font-size:15px}
+.result{display:grid;gap:20px}
+.score{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.gauge{width:132px;height:132px;flex:none}
+.score h3{font-size:30px;font-weight:900}
+.score p{color:var(--muted)}
+.gaps{display:grid;gap:8px}
+.gaps div{display:flex;gap:12px;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:7px}
+.gaps div span{font:500 12px/1.7 var(--mono);color:var(--bad);flex:none}
+.small{font-size:14.5px;color:var(--muted)}
+.numbox{font:500 15px/1 var(--mono);user-select:all}
+@media (max-width:820px){.quiz{grid-template-columns:1fr}.quiz aside{display:none}}
+
+/* field */
+.reel{display:grid;grid-template-columns:2fr 1fr;grid-auto-rows:clamp(280px,34vw,420px);gap:12px;margin-bottom:28px}
+@media (max-width:700px){.reel{grid-template-columns:1fr;grid-auto-rows:auto}.reel .vpanel{aspect-ratio:16/10}.reel .vpanel.v{aspect-ratio:4/5;max-height:440px}}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{font:600 14.5px/1 var(--body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.filters button small{font:500 11.5px/1 var(--mono);opacity:.65;margin-left:6px}
+.gallery{columns:4 240px;column-gap:12px}
+.gallery figure{margin:0 0 12px;break-inside:avoid;position:relative;border-radius:8px;overflow:hidden;cursor:zoom-in;background:var(--chip)}
+.gallery img{display:block;width:100%;height:auto;transition:transform .5s ease}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{position:absolute;left:8px;bottom:8px;font:500 11.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;background:rgba(10,19,37,.8);color:#EEF2F8;padding:6px 8px;border-radius:3px}
+.lb{position:fixed;inset:0;z-index:80;background:rgba(5,10,22,.94);display:grid;place-items:center;padding:20px}
+.lb img{max-height:86vh;max-width:100%;border-radius:6px}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;font:600 15px/1 var(--body);background:#fff;color:#111;border:0;border-radius:6px;padding:10px 14px;cursor:pointer}
+.lb p{color:#EEF2F8;font:500 13px/1 var(--mono);margin-top:12px;text-transform:uppercase;letter-spacing:.06em;text-align:center}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.about-media{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:0;position:sticky;top:90px}
+.about-media .vpanel{aspect-ratio:4/5}
+.about-media .vpanel.main{grid-column:span 2;aspect-ratio:16/10}
+@media (max-width:860px){.about-media{position:static}}
+.about-photos img{width:100%;border-radius:10px;object-fit:cover;aspect-ratio:3/4;display:block}
+.about-photos img:first-child{grid-column:span 2;aspect-ratio:5/4}
+.about-copy{display:grid;gap:20px;min-width:0}
+.about-copy p{max-width:64ch}
+.creds{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.creds div{padding:15px 18px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);display:grid;gap:3px}
+.creds div:nth-child(2n){border-right:0}
+.creds div:nth-last-child(-n+2){border-bottom:0}
+.creds b{font:600 16px/1.3 var(--body)}
+.creds span{font:400 13px/1.4 var(--mono);color:var(--muted)}
+.zenit{display:flex;gap:20px;align-items:center;border-radius:10px;padding:20px 22px;overflow:hidden}
+.zenit img{height:70px;width:auto;flex:none}
+.zenit p{color:var(--silver);font-size:16px}
+.zenit strong{color:#fff}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+@media (max-width:520px){.creds{grid-template-columns:1fr}.creds div{border-right:0}.creds div:nth-last-child(2){border-bottom:1px solid var(--line)}.zenit{flex-direction:column;align-items:flex-start}}
+
+/* partners */
+.partner{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,48px);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(24px,4vw,44px)}
+.partner ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.partner li{display:flex;gap:12px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:10px}
+.partner li:last-child{border-bottom:0}
+.partner li b{font:500 12px/1 var(--mono);color:var(--glow);flex:none;width:28px}
+@media (max-width:820px){.partner{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:880px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:0 20px}
+.faq summary{cursor:pointer;font:700 18px/1.4 var(--display);padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:500 22px/1 var(--mono);color:var(--muted)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:18px;color:var(--muted);max-width:72ch}
+
+/* final */
+.final{background-position:60% center}
+.final::before{content:"";position:absolute;inset:0;background:rgba(8,16,40,.5);pointer-events:none}
+.final .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.final h2{font-size:clamp(36px,4.8vw,56px)}
+.contact{display:grid;gap:16px;background:rgba(10,20,48,.6);border:1px solid var(--hair);border-radius:10px;padding:24px;backdrop-filter:blur(3px)}
+.contact div{display:grid;gap:4px}
+.contact span{font:700 11px/1 var(--display);letter-spacing:.24em;text-transform:uppercase;color:var(--silver-dim)}
+.contact b{font:600 20px/1.3 var(--body);user-select:all}
+.contact a{color:#fff}
+@media (max-width:820px){.final .wrap{grid-template-columns:1fr}}
+footer{background:var(--night);color:var(--silver-dim);border-top:1px solid var(--hair);font:400 13px/1.6 var(--mono)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-block:22px}
+
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.3)}
+.fab svg{width:30px;height:30px}
+</style>
+<style>
+/* v2 additions: PBQP-H focus */
+.costs{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.costs li{display:flex;gap:12px;align-items:baseline;font-size:17px;color:var(--fg)}
+.costs li b{font:500 12px/1 var(--mono);color:var(--bad);flex:none;width:30px}
+.pain-foot{align-items:flex-start}
+.pkg-head{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,48px);align-items:center;margin-bottom:28px}
+.pkg-head .sec-head{margin-bottom:0}
+.pkg-img{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--navy)}
+.pkg-img img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+.pkg-img span{position:absolute;left:12px;bottom:12px;font:500 11.5px/1 var(--mono);letter-spacing:.06em;background:rgba(10,20,48,.85);color:#fff;padding:7px 9px;border-radius:3px}
+@media (max-width:820px){.pkg-head{grid-template-columns:1fr}}
+.pkgs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pkg{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.pkg .codes{font:500 12px/1.4 var(--mono);color:var(--glow);letter-spacing:.04em}
+.pkg h3{font-size:22px}
+.pkg p{font-size:16px;color:var(--muted);line-height:1.5}
+.pkg ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.pkg li{padding-left:22px;position:relative;font-size:15.5px;line-height:1.45}
+.pkg li::before{content:"✦";position:absolute;left:0;top:1px;font-size:11px;color:var(--glow)}
+.pkg .btn{margin-top:auto;justify-self:start;align-self:flex-start;padding:13px 16px;font-size:15px}
+.pkg.star{border-color:var(--glow);box-shadow:0 10px 30px rgba(16,34,74,.12)}
+@media (max-width:1060px){.pkgs{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.pkgs{grid-template-columns:1fr}}
+.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+.formats div{border:1px solid var(--hair);border-radius:10px;padding:20px 22px;background:rgba(244,247,252,.06);display:grid;gap:6px}
+.formats b{font:900 20px/1.2 var(--display);color:#fff}
+.formats span{font-size:15.5px;color:var(--silver)}
+.formats small{font:500 11.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--silver-dim)}
+@media (max-width:760px){.formats{grid-template-columns:1fr}}
+.friends{display:flex;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:22px}
+.friends svg{width:30px;height:30px;flex:none;stroke:var(--glow);fill:none;stroke-width:1.6}
+.friends p{font-size:17px}
+.friends strong{font-family:var(--display);font-weight:900}
+.pick{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pick figure{margin:0;position:relative;border-radius:10px;overflow:hidden;background:var(--chip);aspect-ratio:4/5;cursor:zoom-in}
+.pick figure.wide{grid-column:span 2;aspect-ratio:8/5}
+.pick{grid-auto-flow:dense}
+.pick img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.pick figure:hover img{transform:scale(1.04)}
+.pick figcaption{position:absolute;left:8px;bottom:8px;font:500 11.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;background:rgba(10,19,37,.8);color:#EEF2F8;padding:6px 8px;border-radius:3px}
+@media (max-width:860px){.pick{grid-template-columns:1fr 1fr}}
+.lvl{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:center;background:var(--chip);border-left:4px solid var(--glow);border-radius:8px;padding:16px 18px}
+.lvl span{grid-column:1/-1;font:700 11.5px/1 var(--display);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.lvl b{font:900 28px/1 var(--display);color:var(--fg)}
+.lvl p{font-size:16px;color:var(--muted)}
+@media (max-width:560px){.lvl{grid-template-columns:1fr}}
+.more-svc{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:center;padding-block:18px;border-top:1px solid var(--hair);font:400 14px/1.5 var(--body);color:var(--silver)}
+.more-svc a{color:#fff}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">
+      <img src="../img/zenit-mark.png" alt="Zênit Consult">
+      <span>Tiago Guedes<small>Zênit Consult</small></span>
+    </a>
+    <nav aria-label="Seções">
+      <a href="#sobre">Sobre</a>
+      <a href="#servico">PBQP-H</a>
+      <a href="#metodo">Método</a>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#perguntas">Dúvidas</a>
+    </nav>
+    <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener" data-msg="Olá, Tiago! Vim pela página de PBQP-H e quero conversar sobre a minha construtora.">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+      <span class="lbl">WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero sky" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="live" aria-hidden="true"></span>Tecnologia aplicada à gestão</p>
+      <h1 id="h1">Sua construtora com <span style="white-space:nowrap">PBQP-H</span> aprovado <em>sem travar a rotina da obra</em></h1>
+      <div class="hero-intro">
+        <p class="hi">Sou Tiago Guedes, consultor em sistemas de gestão desde 2011.</p>
+        <p class="lede">Pela <strong>Zênit Consult</strong>, conduzo construtoras à certificação <strong>PBQP-H no SiAC Nível B e Nível A</strong>, com um método construído em mais de 15 anos de campo e testado dentro dos canteiros.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-star" href="#diagnostico">Fazer meu diagnóstico grátis</a>
+        <a class="btn btn-ghost js-wa" href="#" target="_blank" rel="noopener" data-msg="Olá, Tiago! Vim pela página de PBQP-H e quero conversar sobre a minha construtora.">Conversar com o Tiago</a>
+      </div>
+      <div class="svc-pills" aria-label="Níveis">
+        <a href="#servico">SiAC Nível B</a><a href="#servico">SiAC Nível A</a><a href="#servico">Auditoria interna</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <video src="../vid/hero-a.mp4" poster="../img/n2.jpg" autoplay muted loop playsinline preload="auto" aria-label="Tiago Guedes acompanhando equipe em obra"></video>
+      <div class="tag"><b>Atendimento do seu jeito</b><span>Presencial em Natal e região, online para qualquer lugar</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>Desde 2011</b><span>em sistemas de gestão</span></div>
+    <div class="stat"><b>1.000+</b><span>horas de auditoria interna</span></div>
+    <div class="stat"><b>500+</b><span>treinamentos ministrados</span></div>
+    <div class="stat"><b>A e B</b><span>os dois níveis do SiAC</span></div>
+  </div>
+</div>
+<div class="ticker" aria-label="Termos do PBQP-H"><div class="ticker-track" id="ticker"></div></div>
+
+<section id="dores" aria-labelledby="h-dores">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Você não está sozinho nisso</p>
+      <h2 id="h-dores">Alguma dessas frases já saiu da sua boca?</h2>
+    </div>
+    <div class="pains">
+      <div class="pain"><q>A Caixa travou a medição por causa de pendência no <span style="white-space:nowrap">PBQP-H</span>.</q><small><b>RISCO</b> · caixa da obra parado</small></div>
+      <div class="pain"><q>Perdi a licitação porque o edital pedia <span style="white-space:nowrap">PBQP-H</span> e eu não tinha.</q><small><b>RISCO</b> · contrato que foi para o concorrente</small></div>
+      <div class="pain"><q>O auditor chega semana que vem e ninguém sabe onde estão as fichas.</q><small><b>RISCO</b> · não conformidade maior</small></div>
+    </div>
+    <div class="pain-foot">
+      <div>
+        <strong>Cada pendência dessas custa caro.</strong>
+        <ul class="costs">
+          <li><b>01</b>Medição atrasada é obra bancada com o caixa da construtora.</li>
+          <li><b>02</b>Edital perdido é contrato que vai para o concorrente.</li>
+          <li><b>03</b>Certificação vencida é financiamento suspenso e obra parada.</li>
+        </ul>
+      </div>
+      <a class="btn btn-navy" href="#diagnostico">Ver por onde começar</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" aria-labelledby="h-sobre" style="padding-top:0">
+  <div class="wrap about">
+    <div class="about-media">
+      <figure class="vpanel main"><video src="../vid/reuniao.mp4" poster="../vid/reuniao.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Tiago Guedes conduzindo reunião com a direção"></video><figcaption>Reunião com a direção</figcaption></figure>
+      <figure class="vpanel"><video src="../vid/obra-tablet.mp4" poster="../vid/obra-tablet.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Tiago Guedes conferindo projeto no tablet em obra"></video><figcaption>Em obra</figcaption></figure>
+      <figure class="vpanel"><video src="../vid/obra-reuniao.mp4" poster="../vid/obra-reuniao.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Do canteiro à sala de reunião"></video><figcaption>Do canteiro à diretoria</figcaption></figure>
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow">Quem vai cuidar da sua obra</p>
+      <h2 id="h-sobre">Tiago Guedes</h2>
+      <p>Trabalho com sistemas de gestão desde 2011 e conheço a obra por dentro: fichas de verificação, materiais controlados, empreiteiros, PQO e o dia a dia de quem precisa entregar no prazo e ainda passar na auditoria.</p>
+      <p>Já atendi várias empresas de forma simultânea e aprendi que norma nenhuma se sustenta só no papel: ela precisa caber na rotina do canteiro. Por isso trabalho junto da equipe, trato cada falha pela causa e só considero o trabalho pronto quando a construtora mantém o sistema sem depender de mim.</p>
+      <p class="small" style="font-size:16px">Antes de focar na construção civil, passei por porto, parque eólico, indústria e logística. Levo para cada obra o que aprendi em cada um desses lugares.</p>
+      <div class="creds">
+        <div><b>Auditor Líder SGI</b><span>ISO 9001 · 14001 · 45001</span></div>
+        <div><b>Auditor Interno SGI</b><span>ISO 9001 · 14001 · 45001</span></div>
+        <div><b>Bacharelado em Administração</b><span>Conclusão 2026</span></div>
+        <div><b>MBA Gestão Industrial, Logística e Qualidade</b><span>Pós-graduação</span></div>
+        <div><b>Gestão de Riscos e Compliance</b><span>Pós-graduação</span></div>
+        <div><b>Neurociência Cognitiva e Comportamental</b><span>Pós-graduação</span></div>
+      </div>
+      <div class="zenit sky">
+        <img src="../img/zenit-logo.png" alt="Zênit Consult">
+        <p><strong>Zênit Consult · Tecnologia aplicada à gestão.</strong> É pela Zênit que saem propostas, contratos e todo o acompanhamento do seu projeto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servico" aria-labelledby="h-svc" style="padding-top:0">
+  <div class="wrap">
+    <div class="pkg-head">
+      <div class="sec-head">
+        <p class="eyebrow">PBQP-H · SiAC 2021</p>
+        <h2 id="h-svc">Do primeiro nível à manutenção do certificado</h2>
+        <p class="lede">O SiAC tem dois níveis. A maioria das construtoras entra pelo Nível B e sobe para o Nível A. Eu conduzo as duas etapas e cuido da manutenção depois.</p>
+      </div>
+      <div class="pkg-img"><img src="../img/n4.jpg" alt="Tiago Guedes orientando equipe técnica no canteiro" loading="lazy"><span>Acompanhamento no canteiro</span></div>
+    </div>
+    <div class="pkgs">
+      <article class="pkg">
+        <p class="codes">SIAC · NÍVEL B</p>
+        <h3>Conquistar o Nível B</h3>
+        <p>A porta de entrada no programa, para destravar crédito e começar a participar de licitações.</p>
+        <ul><li>Diagnóstico da obra e do escritório</li><li>Procedimentos e fichas dos serviços iniciais</li><li>Auditoria interna antes da certificadora</li></ul>
+        <button class="btn btn-line js-diag" type="button" data-goal="0">Diagnóstico Nível B →</button>
+      </article>
+      <article class="pkg star">
+        <p class="codes">SIAC · NÍVEL A</p>
+        <h3>Subir para o Nível A</h3>
+        <p>O sistema completo, com todos os serviços e materiais controlados, exigido na maior parte dos financiamentos.</p>
+        <ul><li>Todos os serviços controlados com PES e fichas de verificação</li><li>Materiais controlados e qualificação de fornecedores</li><li>PQO por obra e indicadores</li></ul>
+        <button class="btn btn-navy js-diag" type="button" data-goal="1">Diagnóstico Nível A →</button>
+      </article>
+      <article class="pkg">
+        <p class="codes">MANUTENÇÃO</p>
+        <h3>Manter e renovar</h3>
+        <p>Para quem já é certificado e não quer correr risco na próxima auditoria.</p>
+        <ul><li>Auditoria interna independente</li><li>Acompanhamento mensal de pendências</li><li>Preparação para auditoria de manutenção e de recertificação</li></ul>
+        <button class="btn btn-line js-diag" type="button" data-goal="2">Diagnóstico de manutenção →</button>
+      </article>
+      <article class="pkg">
+        <p class="codes">RECUPERAÇÃO</p>
+        <h3>Recuperar o sistema</h3>
+        <p>Para quem recebeu não conformidades graves ou tem um sistema que parou de funcionar.</p>
+        <ul><li>Análise das não conformidades pela causa</li><li>Plano de ação com prazos da certificadora</li><li>Reorganização dos registros da obra</li></ul>
+        <button class="btn btn-line js-diag" type="button" data-goal="3">Diagnóstico de recuperação →</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="method sky" id="metodo" aria-labelledby="h-met">
+  <div class="wrap">
+    <div class="met-head">
+      <div class="sec-head">
+        <p class="eyebrow">Método Zênit</p>
+        <h2 id="h-met">Obra tem cronograma. Ele não para pela certificação.</h2>
+        <p class="lede">Desenvolvi este método em mais de 15 anos de atuação em diversos setores, incluindo a construção civil. Por isso ele acompanha o ritmo da sua construtora, sem tirar a equipe do canteiro e sem reuniões longas que não mudam nada na medição.</p>
+      </div>
+      <figure class="vpanel tall"><video src="../vid/hero-b.mp4" poster="../img/n3.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Tiago Guedes revisando checklist com a equipe"></video><figcaption>Acompanhamento de perto</figcaption></figure>
+    </div>
+    <div class="formats" aria-label="Formatos de atendimento">
+      <div><small>Formato</small><b>Presencial</b><span>Visitas à obra e ao escritório em Natal e região, nos momentos que decidem a certificação.</span></div>
+      <div><small>Formato</small><b>Híbrido</b><span>Presencial no diagnóstico, na auditoria interna e no dia da certificadora; o restante online.</span></div>
+      <div><small>Formato</small><b>Online</b><span>Videochamadas, registros pelo celular e documentos na nuvem, para construtoras de qualquer lugar.</span></div>
+    </div>
+    <ol class="steps">
+      <li><h3>Diagnóstico</h3><p>Visita ou videochamada. Você sai sabendo exatamente onde está e quanto falta para o nível que quer.</p></li>
+      <li><h3>Plano de ação</h3><p>Lacunas priorizadas por risco, com responsáveis e prazos que respeitam o cronograma da obra.</p></li>
+      <li><h3>Implantação guiada</h3><p>Procedimentos e fichas enxutos, feitos junto com engenheiros e mestres, a partir do que a obra já faz.</p></li>
+      <li><h3>Treinamento</h3><p>No canteiro ou online, curto e prático, na linguagem de quem executa o serviço.</p></li>
+      <li><h3>Auditoria interna</h3><p>Auditoria completa antes da certificadora, com cada falha tratada pela causa.</p></li>
+      <li><h3>Certificação</h3><p>Acompanho a construtora na auditoria do organismo certificador até o fechamento das pendências.</p></li>
+    </ol>
+    <div class="techrow">
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg><p><b>Painel de indicadores</b><span>Ferramentas digitais próprias para acompanhar metas e pendências</span></p></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><p><b>Fichas no celular</b><span>A equipe registra a verificação direto da obra, com foto e data</span></p></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18Z"/></svg><p><b>Documentos na nuvem</b><span>Tudo organizado e pronto para o dia da auditoria</span></p></div>
+    </div>
+    <div class="commit">
+      <img src="../img/zenit-mark.png" alt="">
+      <p><strong>Compromisso:</strong> acompanhamento até a auditoria de certificação, com apoio no tratamento das não conformidades apontadas pela certificadora até o fechamento.</p>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostico" aria-labelledby="h-diag">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Diagnóstico PBQP-H · gratuito</p>
+      <h2 id="h-diag">Descubra em 2 minutos quanto falta para a sua construtora</h2>
+      <p class="lede">Responda 8 perguntas sobre a rotina da obra e veja sua pontuação e por onde começar. Se quiser, me manda o resultado no WhatsApp e eu respondo pessoalmente.</p>
+    </div>
+    <div class="quiz">
+      <aside>
+        <p class="eyebrow">Etapas</p>
+        <ol id="q-steps">
+          <li><i>1</i>8 perguntas</li>
+          <li><i>2</i>Objetivo e contato</li>
+          <li><i>3</i>Resultado</li>
+        </ol>
+        <p class="small">Todas as perguntas são obrigatórias. Suas respostas só saem desta página se você enviar pelo WhatsApp.</p>
+      </aside>
+      <div class="qpane" id="qpane" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="campo" aria-labelledby="h-campo" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Experiência em campo</p>
+      <h2 id="h-campo">Dentro da obra, junto da equipe</h2>
+      <p class="lede">Registros reais do meu trabalho, com os nomes das empresas preservados.</p>
+    </div>
+    <div class="friends">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M12 20c0-3 2-5 5-5s5 2 5 5"/></svg>
+      <p><strong>Em cada lugar, mais do que contratos: amizades.</strong> Consultoria é feita com pessoas, e é com elas que o sistema funciona depois que eu saio.</p>
+    </div>
+    <div class="pick" id="pick"></div>
+  </div>
+</section>
+
+<section id="perguntas" aria-labelledby="h-faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Dúvidas frequentes</p>
+      <h2 id="h-faq">O que toda construtora me pergunta antes de começar</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Qual a diferença entre Nível B e Nível A do SiAC?</summary><p>O Nível B é a primeira etapa, com parte dos requisitos implantados. O Nível A é o sistema completo, com todos os serviços e materiais controlados. Muitas construtoras entram pelo B e sobem para o A; eu conduzo as duas etapas.</p></details>
+      <details><summary>O atendimento é presencial ou online?</summary><p>Você escolhe. Em Natal e região posso estar na obra; para outras cidades, o trabalho é online, com a equipe registrando as verificações pelo celular. Muitas construtoras preferem o híbrido: presencial nos momentos decisivos e online no restante.</p></details>
+      <details><summary>Quanto tempo leva para certificar?</summary><p>Depende do ponto de partida e do nível. Quem já tem parte do sistema costuma levar de 3 a 5 meses; quem começa do zero, de 6 a 8 meses. O diagnóstico dá a primeira estimativa.</p></details>
+      <details><summary>Quanto custa?</summary><p>Depende do porte, do número de obras e do nível. A proposta sai depois do diagnóstico e separa o valor da consultoria do valor cobrado pela certificadora, para você saber o investimento total.</p></details>
+      <details><summary>Pequena construtora consegue PBQP-H?</summary><p>Sim. O sistema acompanha o tamanho da operação, e o Nível B foi pensado justamente para a empresa evoluir por etapas.</p></details>
+      <details><summary>Preciso contratar alguém só para cuidar disso?</summary><p>Na maioria das construtoras pequenas e médias, não. Monto o sistema sobre a rotina que a equipe já tem e treino um responsável interno para manter.</p></details>
+      <details><summary>Minha construtora recebeu muitas não conformidades. Dá para recuperar?</summary><p>Dá. Começo pela análise do que a certificadora apontou, trato cada não conformidade pela causa e organizo os registros para a próxima auditoria.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final sky" aria-labelledby="h-final">
+  <div class="wrap">
+    <div style="display:grid;gap:20px;min-width:0">
+      <p class="eyebrow">Próximo passo</p>
+      <h2 id="h-final">Vamos conversar 20 minutos sobre a sua obra?</h2>
+      <p class="lede">Sem compromisso. Você me conta onde está e eu mostro o caminho mais curto até o certificado.</p>
+      <div class="cta-row">
+        <a class="btn btn-star js-wa" href="#" target="_blank" rel="noopener" data-msg="Olá, Tiago! Vim pela página de PBQP-H e quero agendar uma conversa de diagnóstico.">Agendar pelo WhatsApp</a>
+        <a class="btn btn-ghost" href="#diagnostico">Fazer o diagnóstico</a>
+      </div>
+    </div>
+    <div class="contact">
+      <div><span>WhatsApp comercial</span><b class="numbox">(85) 98525-2356</b></div>
+      <div><span>Instagram</span><b><a href="https://www.instagram.com/comercial.zenit" target="_blank" rel="noopener">@comercial.zenit</a></b></div>
+      <div><span>Atendimento</span><b>Presencial em Natal e região · online para qualquer lugar</b></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap more-svc"><span>Também atendo ISO 9001 e Programa de Integridade.</span><a href="../">Conhecer os outros serviços →</a></div>
+  <div class="wrap"><span>© 2026 Zênit Consult · Tiago Guedes</span><span>Tecnologia aplicada à gestão</span></div>
+</footer>
+
+<a class="fab js-wa" href="#" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp" data-msg="Olá, Tiago! Vim pela página de PBQP-H e quero conversar sobre a minha construtora.">
+  <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<div class="lb" id="lb" hidden><button type="button" id="lb-close">Fechar ✕</button><div><img id="lb-img" alt=""><p id="lb-cap"></p></div></div>
+
+<script>
+const WA='5585985252356';
+const waLink=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
+document.querySelectorAll('.js-wa').forEach(a=>a.href=waLink(a.dataset.msg));
+
+const TICK=['PBQP-H','SiAC Nível A e B','PQO','Fichas de verificação','Materiais controlados','Qualificação de fornecedores','Auditoria interna','Caixa','Minha Casa, Minha Vida','Licitações'];
+document.getElementById('ticker').innerHTML=TICK.map(t=>`<span>${t}</span>`).join('')+TICK.map(t=>`<span aria-hidden="true">${t}</span>`).join('');
+
+/* curated field photos */
+const PICK=[
+ ['f47','Construção civil','Casas geminadas em fase de acabamento','wide'],
+ ['f39','Construção civil','Verificação de serviço em campo'],
+ ['f44','Construção civil','Acompanhamento de alvenaria'],
+ ['f45','Construção civil','Alvenaria estrutural em execução'],
+ ['f46','Construção civil','Equipe técnica no escritório de obra'],
+ ['f21','Construção civil','Residencial em andamento'],
+ ['f27','Construção civil','Fundação e armaduras'],
+ ['f40','Construção civil','Conferência de alvenaria'],
+ ['f42','Treinamento','Dinâmica com equipe operacional'],
+ ['f33','Treinamento','Treinamento com equipe industrial','wide'],
+ ['f05','Porto e ZPE','Equipe em área portuária'],
+ ['f04','Porto e ZPE','Auditoria em terminal portuário'],
+ ['f12','Energia eólica','Parque eólico'],
+ ['f51','Indústria','Equipe de indústria de cosméticos']
+];
+const pick=document.getElementById('pick');
+pick.innerHTML=PICK.map(p=>`<figure class="${p[3]||''}" data-src="../img/${p[0]}.jpg" data-cap="${p[1]} · ${p[2]}"><img src="../img/${p[0]}.jpg" alt="${p[2]}" loading="lazy"><figcaption>${p[1]}</figcaption></figure>`).join('');
+const lb=document.getElementById('lb');
+pick.addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;document.getElementById('lb-img').src=f.dataset.src;document.getElementById('lb-cap').textContent=f.dataset.cap;lb.hidden=false;document.getElementById('lb-close').focus();});
+const closeLb=()=>lb.hidden=true;
+document.getElementById('lb-close').onclick=closeLb;
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+
+/* quiz: PBQP-H only, everything required */
+const S={name:'PBQP-H (construtora)',
+  q:['A obra tem procedimentos de execução escritos e a equipe usa no dia a dia?','Os serviços são inspecionados e registrados em ficha de verificação?','O recebimento de materiais controlados é verificado e registrado?','Fornecedores e empreiteiros são qualificados e avaliados?','Cada obra tem Plano da Qualidade (PQO) atualizado?','A empresa faz auditoria interna pelo menos uma vez por ano?','As falhas são tratadas pela causa, com verificação se a ação funcionou?','A satisfação do cliente e a assistência pós-obra são acompanhadas?'],
+  s:['Procedimentos de execução','Fichas de verificação','Materiais controlados','Fornecedores e empreiteiros','Plano da Qualidade da Obra','Auditoria interna','Tratamento de não conformidades','Satisfação e pós-obra'],
+  goals:['Conquistar o Nível B','Subir do Nível B para o Nível A','Manter ou renovar a certificação','Recuperar o sistema após auditoria ruim']};
+const ANS=[['Sim, funciona',2],['Em parte',1],['Não',0]];
+const DEAD=['Até 3 meses','3 a 6 meses','Mais de 6 meses','Sem prazo definido'];
+const CITIES=['Natal','Parnamirim','São Gonçalo do Amarante','Macaíba','Extremoz','Ceará-Mirim','Mossoró','Outra cidade do RN','Outro estado'];
+let st={step:'qs',i:0,a:[],goal:null,dead:null,name:'',company:'',city:''};
+const pane=document.getElementById('qpane');
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function markSteps(){const order=['qs','ctx','res'];const k=order.indexOf(st.step);document.querySelectorAll('#q-steps li').forEach((li,j)=>{li.className=j<k?'done':j===k?'cur':''});}
+function render(){
+  markSteps();
+  if(st.step==='qs'){
+    const qs=S.q;
+    pane.innerHTML=`<div class="bar"><i style="width:${4+st.i/qs.length*76}%"></i></div>
+    <p class="eyebrow">Pergunta ${st.i+1} de ${qs.length}</p><p class="qtitle">${qs[st.i]}</p>
+    <div class="opts">${ANS.map((x,j)=>`<button class="opt" type="button" data-v="${x[1]}" aria-pressed="${st.a[st.i]===x[1]}"><b>${'ABC'[j]}</b>${x[0]}</button>`).join('')}</div>
+    ${st.i>0?'<div class="qnav"><button class="btn btn-line" type="button" id="back">← Voltar</button></div>':''}`;
+    pane.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{st.a[st.i]=+b.dataset.v;if(st.i<qs.length-1)st.i++;else st.step='ctx';render();});
+    const bk=pane.querySelector('#back'); if(bk) bk.onclick=()=>{st.i--;render();};
+  } else if(st.step==='ctx'){
+    pane.innerHTML=`<div class="bar"><i style="width:86%"></i></div>
+    <p class="qtitle">Qual é o seu objetivo?</p>
+    <div class="opts two">${S.goals.map((g,j)=>`<button class="opt" type="button" data-g="${j}" aria-pressed="${st.goal===j}"><b>${'ABCD'[j]}</b>${g}</button>`).join('')}</div>
+    <p class="qtitle">Em quanto tempo você precisa disso?</p>
+    <div class="opts two">${DEAD.map((g,j)=>`<button class="opt" type="button" data-d="${j}" aria-pressed="${st.dead===j}"><b>${'ABCD'[j]}</b>${g}</button>`).join('')}</div>
+    <div class="fields">
+      <div class="field"><label for="q-name">Seu nome *</label><input id="q-name" autocomplete="name" required value="${esc(st.name)}"></div>
+      <div class="field"><label for="q-company">Construtora *</label><input id="q-company" autocomplete="organization" required value="${esc(st.company)}"></div>
+      <div class="field"><label for="q-city">Cidade *</label><select id="q-city" required><option value="">Selecione</option>${CITIES.map(c=>`<option ${c===st.city?'selected':''}>${c}</option>`).join('')}</select></div>
+    </div>
+    <p class="err" id="q-err" hidden></p>
+    <div class="qnav"><button class="btn btn-line" type="button" id="back">← Voltar</button><button class="btn btn-navy" type="button" id="go">Ver meu resultado</button></div>`;
+    pane.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{st.goal=+b.dataset.g;pane.querySelectorAll('[data-g]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+    pane.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{st.dead=+b.dataset.d;pane.querySelectorAll('[data-d]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+    const sync=()=>{st.name=pane.querySelector('#q-name').value.trim();st.company=pane.querySelector('#q-company').value.trim();st.city=pane.querySelector('#q-city').value};
+    pane.querySelector('#back').onclick=()=>{sync();st.step='qs';st.i=S.q.length-1;render();};
+    pane.querySelector('#go').onclick=()=>{sync();const e=pane.querySelector('#q-err');
+      const unanswered=S.q.map((_,j)=>st.a[j]===undefined?j+1:null).filter(Boolean);
+      const miss=[unanswered.length&&('as perguntas '+unanswered.join(', ')),st.goal===null&&'o objetivo',st.dead===null&&'o prazo',!st.name&&'seu nome',!st.company&&'a construtora',!st.city&&'a cidade'].filter(Boolean);
+      if(miss.length){e.textContent='Para ver o resultado, falta preencher: '+miss.join(', ')+'.';e.hidden=false;return}
+      st.step='res';render();pane.scrollIntoView({block:'start',behavior:'smooth'});};
+  } else {
+    const max=S.q.length*2,sum=st.a.reduce((x,y)=>x+y,0),pct=Math.round(sum/max*100);
+    const band=pct>=75?0:pct>=40?1:2;
+    const names=['Pronto para ajustes finos','Sistema parcial','Base a construir'];
+    const notes=['Prazo típico: 2 a 4 meses até a auditoria','Prazo típico: 4 a 6 meses até a auditoria','Prazo típico: 6 a 8 meses até a auditoria'];
+    const colors=['var(--ok)','var(--warn)','var(--bad)'];
+    const gaps=st.a.map((v,j)=>[v,j]).filter(x=>x[0]<2).sort((a,b)=>a[0]-b[0]).slice(0,3);
+    let lvl,lvlTxt;
+    if(st.goal===2){lvl='Manutenção';lvlTxt=pct>=75?'Seu sistema está de pé. O foco é auditoria interna e acompanhamento para não perder o certificado.':'Há pendências que podem pesar na próxima auditoria. Vale tratar antes que a certificadora aponte.';}
+    else if(st.goal===3){lvl='Recuperação';lvlTxt='Primeiro organizamos as não conformidades pela causa; depois definimos se o caminho é manter o nível atual ou começar pelo Nível B.';}
+    else if(pct>=75){lvl='Nível A';lvlTxt='Sua base já comporta o sistema completo. Dá para mirar direto no Nível A.';}
+    else if(pct>=40){lvl='Nível B';lvlTxt='O caminho mais curto é conquistar o Nível B agora, já preparando a subida para o Nível A.';}
+    else {lvl='Nível B';lvlTxt='Comece pelo Nível B: ele destrava crédito e licitações enquanto o sistema amadurece.';}
+    const C=2*Math.PI*54,off=C*(1-pct/100);
+    const msg=`Olá, Tiago! Fiz o Diagnóstico PBQP-H no site.\n\nNome: ${st.name}\nConstrutora: ${st.company}\nCidade: ${st.city}\nObjetivo: ${S.goals[st.goal]}\nPrazo: ${DEAD[st.dead]}\n\nPontuação: ${pct}% (${names[band]})\nNível indicado: ${lvl}\nLacunas: ${gaps.length?gaps.map(g=>S.s[g[1]]).join('; '):'nenhuma crítica'}\n\nQuero conversar sobre o próximo passo.`;
+    pane.innerHTML=`<div class="bar"><i style="width:100%"></i></div>
+    <div class="result">
+      <div class="score">
+        <svg class="gauge" viewBox="0 0 132 132" role="img" aria-label="Pontuação ${pct}%"><circle cx="66" cy="66" r="54" fill="none" stroke="var(--chip)" stroke-width="12"/><circle cx="66" cy="66" r="54" fill="none" stroke="${colors[band]}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${off}" transform="rotate(-90 66 66)"/><text x="66" y="75" text-anchor="middle" fill="var(--fg)" style="font:900 32px var(--display)">${pct}%</text></svg>
+        <div style="display:grid;gap:6px;min-width:0"><p class="eyebrow">PBQP-H · ${esc(S.goals[st.goal])}</p><h3>${names[band]}</h3><p>${notes[band]}. Estimativa inicial, confirmada na conversa.</p></div>
+      </div>
+      <div class="lvl"><span>Nível indicado agora</span><b>${lvl}</b><p>${lvlTxt}</p></div>
+      ${gaps.length?`<div class="gaps"><p class="eyebrow">Por onde começar</p>${gaps.map(g=>`<div><span>${g[0]===0?'AUSENTE':'PARCIAL'}</span>${S.s[g[1]]}</div>`).join('')}</div>`:'<p>Nenhuma lacuna crítica nas suas respostas. Uma auditoria interna independente confirma se está tudo pronto.</p>'}
+      <a class="btn btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener">Enviar meu resultado para o Tiago</a>
+      <p class="small">Se o WhatsApp não abrir, chame no <span class="numbox">(85) 98525-2356</span> e informe sua pontuação.</p>
+      <div><button class="btn btn-line" type="button" id="redo">Refazer o diagnóstico</button></div>
+    </div>`;
+    pane.querySelector('#redo').onclick=()=>{st={step:'qs',i:0,a:[],goal:null,dead:null,name:st.name,company:st.company,city:st.city};render();};
+  }
+}
+render();
+document.querySelectorAll('.js-diag').forEach(b=>b.onclick=()=>{st.goal=+b.dataset.goal;document.getElementById('diagnostico').scrollIntoView({behavior:'smooth'});});
+</script>
+
+</body>
+</html>
