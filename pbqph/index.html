@@ -349,6 +349,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
 .lvl b{font:900 28px/1 var(--display);color:var(--fg)}
 .lvl p{font-size:16px;color:var(--muted)}
 @media (max-width:560px){.lvl{grid-template-columns:1fr}}
+.creds .lead-cred{grid-column:1/-1}
 .more-svc{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:center;padding-block:18px;border-top:1px solid var(--hair);font:400 14px/1.5 var(--body);color:var(--silver)}
 .more-svc a{color:#fff}
 </style>
@@ -450,9 +451,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
       <p>Já atendi várias empresas de forma simultânea e aprendi que norma nenhuma se sustenta só no papel: ela precisa caber na rotina do canteiro. Por isso trabalho junto da equipe, trato cada falha pela causa e só considero o trabalho pronto quando a construtora mantém o sistema sem depender de mim.</p>
       <p class="small" style="font-size:16px">Antes de focar na construção civil, passei por porto, parque eólico, indústria e logística. Levo para cada obra o que aprendi em cada um desses lugares.</p>
       <div class="creds">
-        <div><b>Auditor Líder SGI</b><span>ISO 9001 · 14001 · 45001</span></div>
-        <div><b>Auditor Interno SGI</b><span>ISO 9001 · 14001 · 45001</span></div>
-        <div><b>Bacharelado em Administração</b><span>Conclusão 2026</span></div>
+        <div class="lead-cred"><b>Auditor Líder SGI</b><span>ISO 9001 · 14001 · 45001</span></div>
+        <div><b>Administração</b><span>Formação</span></div>
         <div><b>MBA Gestão Industrial, Logística e Qualidade</b><span>Pós-graduação</span></div>
         <div><b>Gestão de Riscos e Compliance</b><span>Pós-graduação</span></div>
         <div><b>Neurociência Cognitiva e Comportamental</b><span>Pós-graduação</span></div>
@@ -574,7 +574,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
     </div>
     <div class="friends">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M12 20c0-3 2-5 5-5s5 2 5 5"/></svg>
-      <p><strong>Em cada lugar, mais do que contratos: amizades.</strong> Consultoria é feita com pessoas, e é com elas que o sistema funciona depois que eu saio.</p>
+      <p><strong>Em cada lugar, mais do que contratos: amizades.</strong> Consultoria é feita com pessoas, e é com elas que o sistema funciona.</p>
     </div>
     <div class="pick" id="pick"></div>
   </div>
@@ -604,8 +604,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
       <p class="eyebrow">Próximo passo</p>
       <h2 id="h-final">Vamos conversar 20 minutos sobre a sua obra?</h2>
       <p class="lede">Sem compromisso. Você me conta onde está e eu mostro o caminho mais curto até o certificado.</p>
+      <p class="small js-agenda-note" style="color:var(--silver)" hidden>Reunião de 20 minutos pelo Google Meet, à tarde. Escolha direto na agenda o horário que funciona para você.</p>
       <div class="cta-row">
-        <a class="btn btn-star js-wa" href="#" target="_blank" rel="noopener" data-msg="Olá, Tiago! Vim pela página de PBQP-H e quero agendar uma conversa de diagnóstico.">Agendar pelo WhatsApp</a>
+        <a class="btn btn-star js-agenda" href="#" target="_blank" rel="noopener" hidden>Escolher dia e horário</a>
+        <a class="btn btn-star js-wa js-wa-main" href="#" target="_blank" rel="noopener" data-msg="Olá, Tiago! Vim pela página de PBQP-H e quero agendar uma conversa de diagnóstico.">Agendar pelo WhatsApp</a>
         <a class="btn btn-ghost" href="#diagnostico">Fazer o diagnóstico</a>
       </div>
     </div>
@@ -631,31 +633,35 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
 
 <script>
 const WA='5585985252356';
+/* Link da agenda (Calendly ou Google Agenda). Vazio = botões de agenda ficam ocultos. */
+const AGENDA='';
 const waLink=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
 document.querySelectorAll('.js-wa').forEach(a=>a.href=waLink(a.dataset.msg));
+const agendaLink=(n,c)=>{if(!AGENDA)return '';try{const u=new URL(AGENDA);if(n)u.searchParams.set('name',n);if(c)u.searchParams.set('a1',c);return u.toString()}catch(e){return AGENDA}};
+if(AGENDA){document.querySelectorAll('.js-agenda').forEach(a=>{a.href=agendaLink();a.hidden=false});document.querySelectorAll('.js-agenda-note').forEach(x=>x.hidden=false);document.querySelectorAll('.js-wa-main').forEach(a=>{a.classList.remove('btn-star');a.classList.add('btn-ghost')});}
 
 const TICK=['PBQP-H','SiAC Nível A e B','PQO','Fichas de verificação','Materiais controlados','Qualificação de fornecedores','Auditoria interna','Caixa','Minha Casa, Minha Vida','Licitações'];
 document.getElementById('ticker').innerHTML=TICK.map(t=>`<span>${t}</span>`).join('')+TICK.map(t=>`<span aria-hidden="true">${t}</span>`).join('');
 
 /* curated field photos */
 const PICK=[
- ['f47','Construção civil','Casas geminadas em fase de acabamento','wide'],
- ['f39','Construção civil','Verificação de serviço em campo'],
- ['f44','Construção civil','Acompanhamento de alvenaria'],
- ['f45','Construção civil','Alvenaria estrutural em execução'],
- ['f46','Construção civil','Equipe técnica no escritório de obra'],
- ['f21','Construção civil','Residencial em andamento'],
- ['f27','Construção civil','Fundação e armaduras'],
- ['f40','Construção civil','Conferência de alvenaria'],
- ['f42','Treinamento','Dinâmica com equipe operacional'],
- ['f33','Treinamento','Treinamento com equipe industrial','wide'],
- ['f05','Porto e ZPE','Equipe em área portuária'],
- ['f04','Porto e ZPE','Auditoria em terminal portuário'],
- ['f12','Energia eólica','Parque eólico'],
- ['f51','Indústria','Equipe de indústria de cosméticos']
+ ['f33','Treinamento com equipe','wide'],
+ ['f39','Verificação de serviço em campo'],
+ ['f44','Acompanhamento de alvenaria'],
+ ['f46','Equipe técnica no escritório de obra'],
+ ['f40','Conferência em obra'],
+ ['f42','Dinâmica com equipe operacional'],
+ ['f05','Equipe em visita técnica'],
+ ['f10','Equipe em canteiro'],
+ ['f12','Visita técnica com a equipe'],
+ ['f51','Equipe reunida','wide'],
+ ['f14','Visita técnica no píer'],
+ ['f04','Em campo'],
+ ['f29','Reunião com a direção'],
+ ['f13','Acompanhamento em campo']
 ];
 const pick=document.getElementById('pick');
-pick.innerHTML=PICK.map(p=>`<figure class="${p[3]||''}" data-src="../img/${p[0]}.jpg" data-cap="${p[1]} · ${p[2]}"><img src="../img/${p[0]}.jpg" alt="${p[2]}" loading="lazy"><figcaption>${p[1]}</figcaption></figure>`).join('');
+pick.innerHTML=PICK.map(p=>`<figure class="${p[2]||''}" data-src="../img/${p[0]}.jpg" data-cap="${p[1]}"><img src="../img/${p[0]}.jpg" alt="${p[1]}" loading="lazy"></figure>`).join('');
 const lb=document.getElementById('lb');
 pick.addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;document.getElementById('lb-img').src=f.dataset.src;document.getElementById('lb-cap').textContent=f.dataset.cap;lb.hidden=false;document.getElementById('lb-close').focus();});
 const closeLb=()=>lb.hidden=true;
@@ -730,7 +736,7 @@ function render(){
       </div>
       <div class="lvl"><span>Nível indicado agora</span><b>${lvl}</b><p>${lvlTxt}</p></div>
       ${gaps.length?`<div class="gaps"><p class="eyebrow">Por onde começar</p>${gaps.map(g=>`<div><span>${g[0]===0?'AUSENTE':'PARCIAL'}</span>${S.s[g[1]]}</div>`).join('')}</div>`:'<p>Nenhuma lacuna crítica nas suas respostas. Uma auditoria interna independente confirma se está tudo pronto.</p>'}
-      <a class="btn btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener">Enviar meu resultado para o Tiago</a>
+      <div class="cta-row">${AGENDA?`<a class="btn btn-navy" href="${agendaLink(st.name,st.company+' · '+pct+'% · '+lvl)}" target="_blank" rel="noopener">Agendar reunião de 20 min</a>`:''}<a class="btn btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener">Enviar meu resultado para o Tiago</a></div>
       <p class="small">Se o WhatsApp não abrir, chame no <span class="numbox">(85) 98525-2356</span> e informe sua pontuação.</p>
       <div><button class="btn btn-line" type="button" id="redo">Refazer o diagnóstico</button></div>
     </div>`;
