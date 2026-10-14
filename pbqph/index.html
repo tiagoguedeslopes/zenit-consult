@@ -368,6 +368,10 @@ section{padding-block:clamp(56px,7vw,96px)}
 .tag-list strong{font:700 14px/1.2 var(--body);color:var(--night);white-space:nowrap}
 .portrait .tag{max-width:310px;min-width:250px}
 .tag-list span{font:400 12.5px/1.2 var(--mono);color:#4A5770;white-space:nowrap}
+.lesson{margin:0;padding:16px 20px;border-left:3px solid var(--glow);background:var(--chip);border-radius:0 8px 8px 0;font:400 18px/1.5 var(--display);color:var(--fg)}
+.lesson strong{font-weight:900}
+.zenit p strong{display:block;margin-bottom:4px}
+@media (min-width:861px){.about-copy > p:not(.eyebrow){text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
 .more-svc{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:center;padding-block:18px;border-top:1px solid var(--hair);font:400 14px/1.5 var(--body);color:var(--silver)}
 .more-svc a{color:#fff}
 </style>
@@ -462,12 +466,12 @@ section{padding-block:clamp(56px,7vw,96px)}
       <figure class="vpanel"><video src="../vid/obra-tablet.mp4" poster="../vid/obra-tablet.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Tiago Guedes conferindo projeto no tablet em obra"></video><figcaption>Em obra</figcaption></figure>
       <figure class="vpanel"><video src="../vid/obra-reuniao.mp4" poster="../vid/obra-reuniao.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Do canteiro à sala de reunião"></video><figcaption>Do canteiro à diretoria</figcaption></figure>
     </div>
-    <div class="about-copy">
+    <div class="about-copy" lang="pt-BR">
       <p class="eyebrow">Quem vai cuidar da sua obra</p>
       <h2 id="h-sobre">Tiago Guedes</h2>
       <p>Trabalho com sistemas de gestão desde 2011 e conheço a obra por dentro: fichas de verificação, materiais controlados, empreiteiros, PQO e o dia a dia de quem precisa entregar no prazo e ainda passar na auditoria.</p>
       <p>Já atendi várias empresas de forma simultânea e aprendi que norma nenhuma se sustenta só no papel: ela precisa caber na rotina do canteiro. Por isso trabalho junto da equipe, trato cada falha pela causa e só considero o trabalho pronto quando a construtora mantém o sistema sem depender de mim.</p>
-      <p class="small" style="font-size:16px">Antes de focar na construção civil, passei por porto, parque eólico, indústria e logística. Levo para cada obra o que aprendi em cada um desses lugares.</p>
+      <blockquote class="lesson">Zona portuária, parque eólico, indústria, logística, obra: ambientes diferentes, a mesma lição. <strong>O sistema só funciona quando as pessoas acreditam nele.</strong></blockquote>
       <div class="creds">
         <div class="lead-cred"><b>Auditor Líder SGI</b><span>ISO 9001 · 14001 · 45001</span></div>
         <div><b>Administração</b><span>Formação</span></div>
@@ -477,7 +481,7 @@ section{padding-block:clamp(56px,7vw,96px)}
       </div>
       <div class="zenit sky">
         <img src="../img/zenit-logo.png" alt="Zênit Consult">
-        <p><strong>Zênit Consult · Tecnologia aplicada à gestão.</strong> É pela Zênit que saem propostas, contratos e todo o acompanhamento do seu projeto.</p>
+        <p><strong>Zênit Consult · Tecnologia aplicada à gestão</strong>É pela Zênit que saem propostas, contratos e todo o acompanhamento do seu projeto.</p>
       </div>
     </div>
   </div>
